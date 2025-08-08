@@ -1,0 +1,638 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #b2ebf2; /* Cambia a un celeste más notorio */
+    color: #004d40;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+}
+
+html,body {
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background-color: #b7dfe6;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Menú de navegación --- */
+nav ul {
+    list-style: none;
+    background-color: #087c80;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Estilos para skip link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link:focus,
+.skip-link:active {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: auto;
+    height: auto;
+    padding: 8px 16px;
+    background-color: #00796b;
+    color: #e0f2f1;
+    text-decoration: none;
+    border-radius: 6px;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.6);
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+}
+
+nav ul li a {
+    color: #e0f2f1;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #004d40;
+    outline: 3px solid #80cbc4;
+    color: #a7ffeb;
+}
+
+main {
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffffcc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.2);
+}
+
+form label {
+    display: block;
+    margin-top: 1em;
+    font-weight: 600;
+    color: #004d40;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.3em;
+    border: 2px solid #00796b;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #004d40;
+    outline: none;
+}
+
+form button {
+    margin-top: 1em;
+    background-color: #00796b;
+    color: #e0f2f1;
+    padding: 0.7em 1.5em;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #004d40;
+    color: #a7ffeb;
+}
+
+/* === ACCESIBILIDAD === */
+
+/* Botón flotante para abrir menú */
+#accesibilidad-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #00796b;
+    color: #e0f2f1;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#accesibilidad-toggle:hover {
+    background-color: #004d40;
+    box-shadow: 0 6px 16px rgba(0, 77, 64, 0.6);
+}
+
+/* Menú desplegable */
+.accesibilidad-menu {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #ffffffdd;
+    border: 2px solid #00796b;
+    padding: 10px;
+    z-index: 998;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(46, 100, 218, 0.2);
+    transition: all 0.3s ease;
+}
+
+.accesibilidad-menu.visible {
+    display: flex;
+    animation: slideIn 0.3s forwards;
+}
+
+.accesibilidad-menu button {
+    background-color: #00796b;
+    color: #e0f2f1;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 77, 64, 0.3);
+}
+
+.accesibilidad-menu button:hover {
+    background-color: #004d40;
+    color: #a7ffeb;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.5);
+}
+
+/* Contraste alto */
+.contraste-alto {
+    background-color: #000 !important;
+    color: #ffeb3b !important;
+}
+
+.contraste-alto a {
+    color: #ffc107 !important;
+}
+
+/* Modo monocromático */
+.modo-monocromatico {
+    filter: grayscale(100%) !important;
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.modo-monocromatico a {
+    color: #000 !important;
+}
+
+/* Invertir colores */
+.invertir-colores {
+    filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Tamaño de texto */
+.texto-grande {
+    font-size: 1.4em !important;
+}
+
+.texto-pequeno {
+    font-size: 0.85em !important;
+}
+
+/* Ajustes de espaciado */
+.espaciado-linea {
+    line-height: 2 !important;
+}
+
+.espaciado-palabra {
+    word-spacing: 0.3em !important;
+}
+
+.espaciado-caracter {
+    letter-spacing: 0.12em !important;
+}
+
+/* Tipografía dislexia */
+.tipografia-dislexia {
+    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+}
+
+/* Zoom página */
+.zoom-pagina {
+    zoom: 1.5;
+}
+
+/* Lupa puntual */
+.lupa-puntual {
+    position: relative;
+}
+
+.lupa-puntual:hover {
+    cursor: zoom-in;
+}
+
+.lupa-puntual::after {
+    content: '';
+    position: absolute;
+    border: 3px solid #00796b;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px #00796b;
+}
+
+/* Resaltar foco y enlaces */
+.resaltar-foco *:focus,
+.resaltar-foco a:focus {
+    outline: 3px solid #ffeb3b !important;
+    outline-offset: 2px !important;
+    background-color: #004d40 !important;
+    color: #ffeb3b !important;
+}
+
+/* Subrayado de enlaces */
+.subrayar-links a {
+    text-decoration: underline !important;
+}
+
+/* Lectura fácil */
+.lectura-facil {
+    font-family: 'Arial', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.8 !important;
+}
+
+/* Cursor grande */
+.cursor-grande {
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1001.cur'), auto !important;
+}
+
+/* Pausar animaciones */
+.pausar-animaciones * {
+    animation: none !important;
+    transition: none !important;
+}
+
+
+
+/* Descripción de audio */
+.descripcion-audio {
+    /* Placeholder: agregar estilos o scripts para descripción de audio */
+}
+
+/* Subtítulos cerrados */
+.subtitulos-cerrados video::cue {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 1.2em;
+}
+
+/* Subtítulos en directo */
+.subtitulos-directo {
+    /* Placeholder: estilos para subtítulos en directo */
+}
+
+/* Controles de audio */
+.controles-audio audio {
+    outline: 2px solid #00796b;
+}
+
+/* Alertas visuales */
+.alertas-visuales {
+    /* Placeholder: estilos para alertas visuales alternativas al sonido */
+}
+
+/* Estilos para mensajes de confirmación y error */
+.mensaje-exito {
+    background: #c8f7c5;
+    color: #256029;
+    border: 1px solid #6fdc8c;
+    padding: 1em;
+    border-radius: 6px;
+    margin-bottom: 1em;
+    width: fit-content;
+}
+
+.mensaje-error {
+    color: #c62828;
+    background-color: #ffcdd2;
+    border: 1px solid #c62828;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* --- Estilos para menú principal mejorado --- */
+.dashboard-section {
+    margin-top: 2em;
+    background-color: #b4d4d2;
+    padding: 2em 1.5em;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 77, 64, 0.10);
+    border: 2px solid #00bcd4; /* celeste más fuerte */
+}
+
+.dashboard-section h2 {
+    color: #00796b;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 0.3em;
+}
+
+.cards-container {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #3e96a1;
+    border-radius: 10px;
+    padding: 1em;
+    flex: 1 1 250px;
+    box-shadow: 0 2px 8px rgba(0, 77, 64, 0.10);
+    border: 2px solid #26cce2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #004d40;
+}
+
+.card p {
+    flex-grow: 1;
+    color: #004d40;
+    margin-bottom: 1em;
+}
+
+.card a {
+    align-self: flex-start;
+    color: #00796b;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    padding: 0.3em 0.6em;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.card a:hover,
+.card a:focus {
+    border-color: #004d40;
+    outline: none;
+}
+
+.news-list,
+.resources-list,
+.quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news-list li,
+.resources-list li,
+.quick-links li {
+    margin-bottom: 0.5em;
+}
+
+.news-list li strong {
+    color: #00796b;
+}
+
+.resources-list li a,
+.quick-links li a {
+    color: #004d40;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.resources-list li a:hover,
+.resources-list li a:focus,
+.quick-links li a:hover,
+.quick-links li a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Estilos para barra lateral */
+.main-with-sidebar {
+    display: flex;
+    gap: 2em;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #e0f2f1;
+    border-radius: 12px;
+    padding: 1em;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.2);
+    height: fit-content;
+}
+
+.sidebar h2 {
+    color: #004d40;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5em;
+    color: #004d40;
+    font-weight: 600;
+}
+
+/* Estilos para botones toggle de secciones */
+.toggle-section {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #00796b;
+    cursor: pointer;
+    padding: 0;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.toggle-section:hover,
+.toggle-section:focus {
+    color: #004d40;
+    outline: none;
+}
+
+/* Animación para mostrar/ocultar secciones */
+.dashboard-section > div,
+.dashboard-section > ul {
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+}
+
+.dashboard-section.collapsed > div,
+.dashboard-section.collapsed > ul {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animaciones para tarjetas */
+.card {
+    background-color: #e0f2f1;
+    border-radius: 10px;
+    padding: 1em;
+    flex: 1 1 250px;
+    box-shadow: 0 2px 8px rgba(0, 77, 64, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 77, 64, 0.3);
+}
+
+/* Animación de entrada para tarjetas */
+.cards-container {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para enlaces rápidos y listas */
+.news-list li,
+.resources-list li,
+.quick-links li {
+    margin-bottom: 0.5em;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.news-list li:nth-child(1),
+.resources-list li:nth-child(1),
+.quick-links li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.news-list li:nth-child(2),
+.resources-list li:nth-child(2),
+.quick-links li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.news-list li:nth-child(3),
+.resources-list li:nth-child(3),
+.quick-links li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.news-list li:nth-child(4),
+.resources-list li:nth-child(4),
+.quick-links li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tabla de mensajes de contacto */
+.table-contacto {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,77,64,0.08);
+    margin-top: 2em;
+}
+
+.table-contacto th, .table-contacto td {
+    padding: 0.8em 1em;
+    text-align: left;
+}
+
+.table-contacto th {
+    background: #00bcd4;
+    color: #006064;
+    font-weight: 700;
+    border-bottom: 2px solid #b2ebf2;
+}
+
+.table-contacto tr:nth-child(even) {
+    background: #f1fafd;
+}
+
+.table-contacto tr:hover {
+    background: #b2ebf2;
+    transition: background 0.2s;
+}
