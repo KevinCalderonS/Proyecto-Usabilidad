@@ -1,5 +1,4 @@
 <?php
-include '../includes/header.php';
 include '../includes/db_connect.php';
 
 // Evitar error de sesión ya iniciada
@@ -50,6 +49,9 @@ if ($_SESSION['bloqueo_login'] > time()) {
         $mensaje = "Demasiados intentos fallidos. Intente nuevamente en $tiempo_bloqueo segundos.";
     }
 }
+
+// Solo aquí incluye el header (después de procesar el login)
+include '../includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

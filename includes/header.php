@@ -39,7 +39,6 @@ $usuario = $_SESSION['usuario'] ?? null;
             <li><a href="../views/contenidos.php" accesskey="c">Contenidos</a></li>
         <?php endif; ?>
         <li><a href="../views/contact.php" accesskey="o">Contacto</a></li>
-        <li><a href="../views/mensajes.php">Mensajes</a></li>
         <li><a href="../logout.php">Cerrar Sesión</a></li>
     </ul>
 </nav>
